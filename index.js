@@ -5,9 +5,6 @@ import reportRoutes from "./routes/report.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-// const dbUrl = process.env.MDB_URL || "mongodb://localhost:27017/Windals-pdi";
-
-// const dbUrl = "mongodb://localhost:27017/Windals-pdi";
 
 dotenv.config();
 
@@ -49,10 +46,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+
+// -----------------------------------------------------
 app.use("/", loginRoutes);
 app.use("/report", reportRoutes);
 /*-----------------------------------------------------*/
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`Server is Listening on the port 5050`);
 });

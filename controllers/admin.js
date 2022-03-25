@@ -26,8 +26,7 @@ export const validateAdmin = (req, res) => {
                 token,
                 {
                   expires: new Date(Date.now() + 86400000),
-                  sameSite: "strict",
-                  httpOnly: false,
+                  sameSite: "None",
                 }
               );
               return res.send({
