@@ -21,10 +21,14 @@ export const validateAdmin = (req, res) => {
             if (results[0].token == token) {
               res.setHeader("Cache-Control", "private");
 
-              res.cookie("__session", token, {
-                expires: new Date(Date.now() + 86400000),
-                sameSite: "lax",
-              });
+              res.cookie(
+                results[0].designation == "M" ? "__master" : "__admin",
+                token,
+                {
+                  expires: new Date(Date.now() + 86400000),
+                  sameSite: "lax",
+                }
+              );
               return res.send({
                 ...results,
                 message: "Login Successful",

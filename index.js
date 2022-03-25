@@ -24,8 +24,8 @@ const app = express();
 //   next();
 // });
 
-const Url = "https://windals-precision.web.app";
-// const Url = "http://localhost:3000";
+// const Url = "https://windals-precision.web.app";
+const Url = "http://localhost:3000";
 
 const corsOptions = {
   origin: Url,
