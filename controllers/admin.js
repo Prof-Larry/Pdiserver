@@ -22,11 +22,11 @@ export const validateAdmin = (req, res) => {
               res.setHeader("Cache-Control", "private");
 
               res.cookie(
-                results[0].designation == "M" ? "__master" : "__admin",
+                results[0].designation == "M" ? "master" : "admin",
                 token,
                 {
                   expires: new Date(Date.now() + 86400000),
-                  sameSite: "lax",
+                  sameSite: "strict",
                 }
               );
               return res.send({
