@@ -19,15 +19,16 @@ export const validateAdmin = (req, res) => {
               process.env.SECRET_AUTH + ""
             );
             if (results[0].token == token) {
+              res.setHeader("Cache-Control", "private");
+
               res.cookie(
-                results[0].designation == "M" ? "master" : "admin",
+                results[0].designation == "M" ? "__master" : "__admin",
                 token,
                 {
                   expires: new Date(Date.now() + 86400000),
                   sameSite: "lax",
                 }
               );
-              res.setHeader("Cache-Control", "private");
               return res.send({
                 ...results,
                 message: "Login Successful",
