@@ -12,7 +12,10 @@ const app = express();
 
 app.use(function (req, res, next) {
   //Enabling CORS
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://windals-precision.web.app"
+  );
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header("Access-Control-Allow-Credentials", true);
   res.header(
